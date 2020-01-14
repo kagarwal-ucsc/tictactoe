@@ -8,15 +8,30 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import { createGlobalStyle } from "styled-components"
+import styled, { createGlobalStyle } from "styled-components"
 
 import Header from "./header"
 
 const GlobalStyle = createGlobalStyle`
-body {
+  html, body {
     padding: 0;
-    margin: 0;
-}
+    margin: 0 auto;;
+    box-sizing: border-box;
+    background-color: #5D5D5D;
+  }
+  :root {
+    --box-size: 12rem;
+    --leter-size: 6rem;
+    --chalk-color: #f4f4f0;
+    --yellow-chalk-color: #f5f9ad;
+  }
+`
+
+const Footer = styled.footer`
+  font-family: cursive;
+  text-align: center;
+  margin-top: 5rem;
+  color: rgba(145, 147, 188, 0.8);
 `
 
 const Layout = ({ children }) => {
@@ -36,7 +51,7 @@ const Layout = ({ children }) => {
       <Header siteTitle={data.site.siteMetadata.title} />
       <div>
         <main>{children}</main>
-        <footer>Built by Kumar</footer>
+        <Footer>Built by calmForecast</Footer>
       </div>
     </>
   )
